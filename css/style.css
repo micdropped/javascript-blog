@@ -78,6 +78,7 @@ body {
 
 .list .active {
   font-weight: bold;
+  background: red;
 }
 
 .list-horizontal li {
@@ -109,5 +110,9 @@ body {
 
 .post-tags p {
   margin: 0 10px 0 0;
+}
+
+.post-tags .list a {
+  padding-right: 2px;
 }
 /*# sourceMappingURL=style.css.map */
