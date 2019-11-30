@@ -26,6 +26,11 @@ body {
 	line-height: 1.7;
 }
 
+a {
+	text-decoration: none;
+}
+
+
 .container {
 	max-width: 1140px;
 	margin: 0 auto;
@@ -52,7 +57,32 @@ body {
 
 .sidebar {
 	flex: 1 0 0;
+
+	ul {
+		li {
+		
+			.tag-size-5 {
+				color: cyan;		
+			}
+			.tag-size-4 {
+				color: magenta;				
+			}
+
+			.tag-size-3 {
+				color: yellow;
+			}
+			
+			.tag-size-2 {
+				color: green;
+			}
+
+			.tag-size-1 {
+				color: orange;
+			}
+		}
+	}
 }
+
 
 .posts {
 	flex: 2 0 0;
@@ -118,9 +148,11 @@ body {
 
 .post-tags {
 	display: flex;
+
 	p {
 		margin: 0 10px 0 0;
 	}
+	
 	.list {
 		a {
 			padding-right: 2px;

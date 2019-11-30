@@ -16,6 +16,10 @@ body {
   line-height: 1.7;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -44,6 +48,26 @@ body {
 .sidebar {
   -ms-flex: 1 0 0px;
       flex: 1 0 0;
+}
+
+.sidebar ul li .tag-size-5 {
+  color: cyan;
+}
+
+.sidebar ul li .tag-size-4 {
+  color: magenta;
+}
+
+.sidebar ul li .tag-size-3 {
+  color: yellow;
+}
+
+.sidebar ul li .tag-size-2 {
+  color: green;
+}
+
+.sidebar ul li .tag-size-1 {
+  color: orange;
 }
 
 .posts {
