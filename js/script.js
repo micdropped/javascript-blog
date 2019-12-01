@@ -110,9 +110,10 @@ function calculateTagClass(count, params) {
 	const normalizedMax = params.max - params.min;
 	const percentage = normalizedCount / normalizedMax;
 	const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
-	return optCloudClassPrefix + classNumber;
 	//console.log(optCloudClassPrefix + classNumber);
+	return optCloudClassPrefix + classNumber;
 }
+
 
 function generateTags() {
 	/* [NEW] create a new variable allTags with an empty object */
@@ -176,7 +177,11 @@ function generateTags() {
 	/*[NEW] START LOOP: for each tag in allTags: */
 	for (let tag in allTags) {
 		/* [NEW] generate code of a link and add it to allTagsHTML */
-		const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href=#tag-' + tag + '>' + tag + '</a> "' + calculateTagClass(allTags[tag], tagsParams) + '" </li>';
+		const tagLinkHTML = '<li><a class="' +
+			calculateTagClass(allTags[tag], tagsParams) +
+			'" href=#tag-' + tag + '>' + tag + '</a> "' +
+			calculateTagClass(allTags[tag], tagsParams) +
+			'" </li>';
 		//console.log("taglinkHTML: ", tagLinkHTML);
 		allTagsHTML += tagLinkHTML;
 
@@ -364,31 +369,10 @@ function addClickListenersToAuthors() {
 }
 addClickListenersToAuthors();
 
-// wyszukuanie wszystkich artykułów
-// sprawdzenie czy mają klasę active ?? czy potrzebne skoro chcemy i tak wszystkie artykuły?
-// usunięcie klasy active z artykułów
-// pętla dla wszystkich artykułów ?? jak nadamy querrySelectorALL nie usunie i tak wszystkich?
-// nadanie wszystkim artykułom active ?? jak wyżej
-// usunięcie active z autorów i tagów
-// wywołanie
-// 
-// function resetClickHandler() {
-// 	let removeActiveAuthors = document.querySelectorAll(".post-author a.active");
-// 	let removeActiveTags = document.querySelectorAll(".post-tags a.active");
-// 	console.log(removeActiveAuthors);
-// 	console.log(removeActiveTags);
-
-
-// 	removeActiveAuthors.classList.remove("active");
-// 	removeActiveTags.classList.remove("active");
-// 	generateTitleLinks("optArticleSelector");
-// }
-// resetClickHandler();
-
-// function addClickListenersToReset() {
-// 	const resetLink = document.querySelector(".section-title a.reset");
-// 	resetLink.addEventListener("click", function () {
-// 		console.log(resetLink);
-// 	})
-// }
-// addClickListenersToReset();
+function addClickListenersToReset() {
+	const resetLink = document.querySelector(".section-title a.reset");
+	resetLink.addEventListener("click", function () {
+		generateTitleLinks();
+	})
+}
+addClickListenersToReset();
