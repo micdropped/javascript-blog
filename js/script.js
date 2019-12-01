@@ -43,7 +43,8 @@ const optArticleSelector = ".post",
 	optArticleAuthorsSelector = ".post-author",
 	optTagsListSelector = ".tags.list",
 	optCloudClassCount = 5,
-	optCloudClassPrefix = "tag-size-";
+	optCloudClassPrefix = "tag-size-",
+	optAuthorsListSelector = ".authors.list";
 
 function generateTitleLinks(customSelector = '') {
 	/* remove contents of titleList */
@@ -95,13 +96,13 @@ function calculateTagsParams(tags) {
 		max: 0
 	};
 	for (let tag in tags) {
-		console.log(tag + ' is used ' + tags[tag] + ' times');
+		//console.log(tag + ' is used ' + tags[tag] + ' times');
 
 		params.max = tags[tag] > params.max ? tags[tag] : params.max;
 		params.min = tags[tag] < params.min ? tags[tag] : params.min;
 	}
 	return params;
-	console.log("params is returned: ", params);
+	//console.log("params is returned: ", params);
 }
 
 function calculateTagClass(count, params) {
@@ -168,7 +169,7 @@ function generateTags() {
 	/* [NEW] find list of tags in right column */
 	const tagList = document.querySelector('.tags');
 	const tagsParams = calculateTagsParams(allTags);
-	console.log('tagsParams:', tagsParams);
+	//console.log('tagsParams:', tagsParams);
 	/* [NEW] create variable for all links HTML code */
 	let allTagsHTML = '';
 
@@ -176,7 +177,7 @@ function generateTags() {
 	for (let tag in allTags) {
 		/* [NEW] generate code of a link and add it to allTagsHTML */
 		const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href=#tag-' + tag + '>' + tag + '</a> "' + calculateTagClass(allTags[tag], tagsParams) + '" </li>';
-		console.log("taglinkHTML: ", tagLinkHTML);
+		//console.log("taglinkHTML: ", tagLinkHTML);
 		allTagsHTML += tagLinkHTML;
 
 		/* [NEW] END LOOP: for each tag in allTahs: */
@@ -251,6 +252,9 @@ addClickListenersToTags();
 // generating authors
 
 function generateAuthors() {
+	/* [NEW] create a new variable allAuthors with an empty array */
+	let allAuthors = {};
+	console.log(allAuthors);
 	/* find all articles */
 	const articles = document.querySelectorAll(optArticleSelector);
 
@@ -265,24 +269,26 @@ function generateAuthors() {
 		/* make html variable with empty string */
 		let html = "";
 
-		/* get tags from data-tags attribute */
+		/* get author from data-authors attribute */
 		const articleAuthors = article.getAttribute("data-author");
 		//console.log(articleAuthors);
-
-		/* generating author tag name*/
-		//const authorSelector = articleAuthors.replace(" ", "");
-		//console.log(authorSelector);
 
 		/* generate HTML of the link */
 		const linkHTML = '<a href="#author-' + articleAuthors + '">' + articleAuthors + "</a>";
 		html = html + linkHTML;
 		//console.log(linkHTML);
-		/* insert HTML of all the links into the tags wrapper */
+		/* insert HTML of all the links into the authors wrapper */
 		author.innerHTML = html;
 		//console.log(html);
 
 		/* END LOOP: for every article: */
 	}
+	/* [NEW] find list of articles in right column */
+	const authorsList = document.querySelector('.authors');
+	console.log(authorsList);
+	/* [NEW] add html from allAuthors to authorsList */
+	//authorsList.innerHTML = allAuthors.join(' ');
+
 }
 
 generateAuthors();
@@ -358,6 +364,14 @@ function addClickListenersToAuthors() {
 }
 addClickListenersToAuthors();
 
+// wyszukuanie wszystkich artykułów
+// sprawdzenie czy mają klasę active ?? czy potrzebne skoro chcemy i tak wszystkie artykuły?
+// usunięcie klasy active z artykułów
+// pętla dla wszystkich artykułów ?? jak nadamy querrySelectorALL nie usunie i tak wszystkich?
+// nadanie wszystkim artykułom active ?? jak wyżej
+// usunięcie active z autorów i tagów
+// wywołanie
+// 
 // function resetClickHandler() {
 // 	let removeActiveAuthors = document.querySelectorAll(".post-author a.active");
 // 	let removeActiveTags = document.querySelectorAll(".post-tags a.active");

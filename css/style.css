@@ -45,28 +45,33 @@ a {
   margin-left: 10px;
 }
 
-.sidebar {
+aside.sidebar {
   -ms-flex: 1 0 0px;
       flex: 1 0 0;
+  display: inline;
 }
 
-.sidebar ul li .tag-size-5 {
+aside.sidebar ul.list.tags {
+  display: inline;
+}
+
+aside.sidebar ul.list.tags li .tag-size-5 {
   color: cyan;
 }
 
-.sidebar ul li .tag-size-4 {
+aside.sidebar ul.list.tags li .tag-size-4 {
   color: magenta;
 }
 
-.sidebar ul li .tag-size-3 {
+aside.sidebar ul.list.tags li .tag-size-3 {
   color: yellow;
 }
 
-.sidebar ul li .tag-size-2 {
+aside.sidebar ul.list.tags li .tag-size-2 {
   color: green;
 }
 
-.sidebar ul li .tag-size-1 {
+aside.sidebar ul.list.tags li .tag-size-1 {
   color: orange;
 }
 

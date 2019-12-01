@@ -55,10 +55,13 @@ a {
 	margin-left: 10px;
 }
 
-.sidebar {
+aside.sidebar {
 	flex: 1 0 0;
+	display: inline;
 
-	ul {
+	ul.list.tags {
+		display: inline;
+
 		li {
 		
 			.tag-size-5 {
@@ -152,7 +155,7 @@ a {
 	p {
 		margin: 0 10px 0 0;
 	}
-	
+
 	.list {
 		a {
 			padding-right: 2px;
