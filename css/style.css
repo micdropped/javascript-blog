@@ -16,8 +16,15 @@ body {
   line-height: 1.7;
 }
 
-a {
+a,
+a:visited,
+a:active {
+  color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  background: darkgrey;
 }
 
 .container {
@@ -51,28 +58,35 @@ aside.sidebar {
   display: inline;
 }
 
-aside.sidebar ul.list.tags {
+aside.sidebar ul.list.tags li {
   display: inline;
 }
 
-aside.sidebar ul.list.tags li .tag-size-5 {
-  color: cyan;
+aside.sidebar ul.list.tags .tag-size-5,
+aside.sidebar ul.list.authors .tag-size-5 {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
-aside.sidebar ul.list.tags li .tag-size-4 {
-  color: magenta;
+aside.sidebar ul.list.tags .tag-size-4,
+aside.sidebar ul.list.authors .tag-size-4 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-aside.sidebar ul.list.tags li .tag-size-3 {
-  color: yellow;
+aside.sidebar ul.list.tags .tag-size-3,
+aside.sidebar ul.list.authors .tag-size-3 {
+  font-size: 1.4rem;
 }
 
-aside.sidebar ul.list.tags li .tag-size-2 {
-  color: green;
+aside.sidebar ul.list.tags .tag-size-2,
+aside.sidebar ul.list.authors .tag-size-2 {
+  font-size: 1.2rem;
 }
 
-aside.sidebar ul.list.tags li .tag-size-1 {
-  color: orange;
+aside.sidebar ul.list.tags .tag-size-1,
+aside.sidebar ul.list.authors .tag-size-1 {
+  font-size: 1rem;
 }
 
 .posts {
@@ -103,11 +117,6 @@ aside.sidebar ul.list.tags li .tag-size-1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.list .active {
-  font-weight: bold;
-  background: red;
 }
 
 .list-horizontal li {
