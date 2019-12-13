@@ -49,6 +49,7 @@ const titleClickHandler = function (event) {
 
 	/* [DONE] add class 'active' to the correct article */
 	targetArticle.classList.add("active");
+	//console.log(targetArticle);
 };
 
 function generateTitleLinks(customSelector = '') {
@@ -78,15 +79,18 @@ function generateTitleLinks(customSelector = '') {
 		html = html + linkHTML;
 	}
 	titleList.innerHTML = html;
+
+	const links = document.querySelectorAll(".titles a");
+	console.log(links);
+	for (let link of links) {
+		link.addEventListener("click", titleClickHandler);
+	};
 }
+
 
 generateTitleLinks();
 
-const links = document.querySelectorAll(".titles a");
-console.log(links);
-for (let link of links) {
-	link.addEventListener("click", titleClickHandler);
-};
+
 
 function calculateTagsParams(tags) {
 	const params = {
